@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+
+-->
+<html>
+    <head>
+        <title>RSocket Client Service</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h2>RSocket Client Service</h2>
+        If you are seeing this page, you have successfully connected to the <b>RSocketClient Service</b>.
+        This service exposes a set of <b>REST</b> endpoint methods that call corresponding methods on the <b>RSocketService</b> via <b>RSocket</b> connections.
+        Both services can be run as either 
+        stand-alone jar files, or can be compiled into <b>GraalVM native images</b> and run from the 
+        included <b>Docker-Compose</b> file.<br><br>
+        
+        <h2>Stand-alone jar file execution</h2>
+        After building both the <b>RSocketService</b> and <b>RSocketClientService</b> <i>(mvn clean package)</i>,
+        start each application with the following command:<br><br>
+        
+        To start the <b>RSocketService</b>:<br><br>
+        <code>java -jar ./target/rsocket-service-0.0.1-SNAPSHOT.jar</code>
+        <br><br>
+        And of course, to start the <b>RSocketClientService</b>:<br><br>
+        <code>
+            java -jar ./target/rsocket-client-service-0.0.1-SNAPSHOT.jar
+        </code>
+        <br><br>
+        which, you have obviously already done, if you are reading this.<br><br>
+        
+        With the application launched, you can exercise the service by clicking on each of the links below.
+        Each links invokes the corresponding <b>RSocket</b> implementation mode.<br><br>
+           <hr>
+        <ul>
+            
+            <li><a href="./fire-and-forget" target="_blank">Fire and Forget</a></li>
+            <li><a href="./request-response" target="_blank">Request/Response</a></li>
+            <li><a href="./request-stream" target="_blank">Request/Stream</a></li>
+            <li><a href="./channel" target="_blank">Channel</a></li>
+            
+        </ul>
+        <hr>
+        <H2>GraalVM native image and Docker-compose execution</H2>
+        If you want to run theses services using <b>Docker-Compose</b>, you will need to build both using the following 
+        command:<br><br>
+        
+        <code>
+            mvn clean spring-boot:build-image
+        </code>
+        <br>
+        This command will build the <b>GraalVM native image</b> executable as well as generate the 
+        <b>Docker</b> container image. Once both container images have been prepared, they can both be started
+         using the following command:<br><br>
+        <code>
+            docker-compose 
+        </code>
+        It is important to remember that each service executes in its own container, with its own <i>localhost</i>.
+        When we run <b>docker-compose</b>, we override the <b>RSocketClient's</b> default 
+        <b>RSocketServer</b> <i>host</i> and <i>port</i> values. Additionally, we create a custom network 
+        (<b>rsocket-example</b>) to allow the services to communicate across.
+    </body>
+</html>

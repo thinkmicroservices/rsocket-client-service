@@ -1,0 +1,23 @@
+## RSocket client service + server service
+---
+version: "3.3"
+
+services:
+  rsocket-client:
+    image: rsocket-client-service:0.0.1-SNAPSHOT
+    environment:
+      rsocket.server.host: rsocket-server
+      rsocket.server.port: 7000
+    ports:
+      - 8080:8080
+    networks:
+      - rsocket
+  rsocket-server:
+    image: rsocket-service:0.0.1-SNAPSHOT
+    ports:
+      - 7000:7000
+    networks:
+      - rsocket
+networks:
+    rsocket: 
+

@@ -1,0 +1,41 @@
+
+body {
+    margin: 25px;
+    background-color: rgb(240,240,240);
+    font-family: arial, sans-serif;
+    font-size: 14px;
+}
+
+/* Applies to all <h1>...</h1> elements. */
+h1 {
+    font-size: 35px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+h3 {
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+code {
+    font-size: 15px;
+    font-weight: bold; 
+    background-color: lightgray;
+
+}
+hr { color: darkgray}
+
+/* Applies to all elements with <... class="someclass"> specified. */
+.someclass { color: red; }
+
+/* Applies to the element with <... id="someid"> specified. */
+#someid { color: green; }
+
