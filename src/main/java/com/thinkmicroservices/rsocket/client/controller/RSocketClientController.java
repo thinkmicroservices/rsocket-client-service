@@ -32,20 +32,20 @@ public class RSocketClientController {
     private static final String SOURCE = "RSocket-Client" + UUID.randomUUID().toString();
     private static final String DESTINATION = "RSocket-Server";
 
-    // RSocket Service routes
+    /* RSocket Service routes */
     public static final String RSOCKET_ROUTE_FIRE_AND_FORGET = "fire-and-forget";
     public static final String RSOCKET_ROUTE_REQUEST_RESPONSE = "request-response";
     public static final String RSOCKET_ROUTE_REQUEST_STREAM = "request-stream";
     public static final String RSOCKET_ROUTE_CHANNEL = "channel";
 
-    // RSocket Client Service paths
+    /* RSocket Client Service paths */
     public static final String RSOCKET_PATH_PREFIX = "/";
     public static final String RSOCKET_FIRE_AND_FORGET_PATH = RSOCKET_PATH_PREFIX + RSOCKET_ROUTE_FIRE_AND_FORGET;
     public static final String RSOCKET_REQUEST_RESPONSE_PATH = RSOCKET_PATH_PREFIX + RSOCKET_ROUTE_REQUEST_RESPONSE;
     public static final String RSOCKET_REQUEST_STREAM_PATH = RSOCKET_PATH_PREFIX + RSOCKET_ROUTE_REQUEST_STREAM;
     public static final String RSOCKET_CHANNEL_PATH = RSOCKET_PATH_PREFIX + RSOCKET_ROUTE_CHANNEL;
 
-    // static message content
+    /* static message content */
     private static final String FIRE_AND_FORGET_CONTENT = "FIRE!!";
     private static final String REQUEST_RESPONSE_MESSAGE_CONTENT = "This is a request!";
     private final RSocketRequester rSocketRequester;
@@ -136,8 +136,7 @@ public class RSocketClientController {
 
         Flux<Request> requests = Flux.empty();
         requests = Flux.concat(requests, request1).delayElements(Duration.ofSeconds(2));
-
-        //Flux.concat(requests, request1, request2, request3);
+ 
         log.info("send request flux to channel");
         Flux<Event> incomingEvents = this.rSocketRequester
                 .route(RSOCKET_ROUTE_CHANNEL)
