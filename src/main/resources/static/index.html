@@ -29,10 +29,10 @@
             java -jar ./target/rsocket-client-service-0.0.1-SNAPSHOT.jar
         </code>
         <br><br>
-        which, you have obviously already done, if you are reading this.<br><br>
+        which, you have obviously already done if you are reading this.<br><br>
         
         With the application launched, you can exercise the service by clicking on each of the links below.
-        Each links invokes the corresponding <b>RSocket</b> implementation mode.<br><br>
+        Each link invokes the corresponding <b>RSocket</b> implementation mode.<br><br>
            <hr>
         <ul>
             
@@ -44,7 +44,7 @@
         </ul>
         <hr>
         <H2>GraalVM native image and Docker-compose execution</H2>
-        If you want to run theses services using <b>Docker-Compose</b>, you will need to build both using the following 
+        If you want to run these services using <b>Docker-Compose</b>, you will need to build both using the following 
         command:<br><br>
         
         <code>
@@ -58,7 +58,7 @@
             docker-compose 
         </code>
         It is important to remember that each service executes in its own container, with its own <i>localhost</i>.
-        When we run <b>docker-compose</b>, we override the <b>RSocketClient's</b> default 
+        Therefore, when we run <b>docker-compose</b>, we override the <b>RSocketClient's</b> default 
         <b>RSocketServer</b> <i>host</i> and <i>port</i> values. Additionally, we create a custom network 
         (<b>rsocket-example</b>) to allow the services to communicate across.
     </body>
